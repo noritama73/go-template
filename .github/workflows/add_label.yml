@@ -8,17 +8,16 @@ jobs:
   auto-labeling-pr:
     runs-on: ubuntu-latest
 
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
       - uses: actions/checkout@v3
 
       # ラベル名を取得する
       - name: Get label name
         id: label_name
+        env: 
+          HEAD_REF: github.head_ref
         run: |
-          branch_type=$(echo ${{github.head_ref}} | cut -d "/" -f1)
+          branch_type=$(echo "$HEAD_REF" | cut -d "/" -f1)
           if [ $branch_type == 'feature' ]; then
             label_name=$(echo "enhancement")
           elif [ $branch_type == 'fix' ] || [ $branch_type == 'hotfix' ]; then
