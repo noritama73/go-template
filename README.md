@@ -30,7 +30,7 @@ SemVerでタグpushするとタグを参考にNote作る
 `make test`して結果Coverallsに送る
 
 
-# gitinroe
+# gitignore
 
 普通のGo対応のやつ
 

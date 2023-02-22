@@ -11,7 +11,7 @@ gosec: fmt
 	@gosec ./...
 
 build: fmt vendor
-	@go build ./cmd/update-ami/main.go
+	@go build .
 
 test: fmt
 	@go test -cover $(shell go list ./... | grep -v 'mocks') -coverprofile=coverage.out 2>&1 > test-report.out
